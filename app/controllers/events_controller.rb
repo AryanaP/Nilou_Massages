@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
-  before_action :set_price, only: [:edit, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy]
 
   def index
     @events = policy_scope(Event).order(date: :desc)
@@ -21,23 +21,23 @@ class EventsController < ApplicationController
     authorize @event
   end
 
-  # def edit
-  #   authorize @price
-  # end
+  def edit
+    authorize @event
+  end
 
-  # def update
-  #   if @price.update(price_params)
-  #     redirect_to prices_path
-  #   else
-  #     render :edit
-  #   end
-  #   authorize @price
-  # end
+  def update
+    if @event.update(event_params)
+      redirect_to events_path
+    else
+      render :edit
+    end
+    authorize @event
+  end
 
-  # def destroy
-  #   @price.destroy
-  #   authorize @price
-  # end
+  def destroy
+    @event.destroy
+    authorize @event
+  end
 
   private
 
