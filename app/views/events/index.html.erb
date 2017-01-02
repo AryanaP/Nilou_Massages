@@ -17,7 +17,7 @@
           <% @events.each do |event| %>
           <tr>
             <td> <%= event.name %> </td>
-            <td> <%= event.date %> </td>
+            <td> <%= event.date.strftime('%a %d %b %Y')  %> </td>
             <td> <%= event.description %> </td>
             <!-- Boutons pour admin  -->
             <td><% if current_user.admin? %>
