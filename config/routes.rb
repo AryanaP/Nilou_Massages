@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   #other
   resources :prices
+  resources :events
+  # resources :partners
 
 end
