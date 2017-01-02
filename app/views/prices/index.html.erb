@@ -8,7 +8,7 @@
           <td>Massage</td>
           <td>Tarif</td>
           <td>Durée</td>
-          <td><% if current_user.admin? %>
+          <td><% if current_user %>
               <%= "Modifier" %>
             <% end %>
           </td>
@@ -19,7 +19,7 @@
             <td class="text-left"> <%= "#{price.name} : #{price.description}" %> </td>
             <td> <%= price.price %> </td>
             <td> <%= price.length %> </td>
-            <td><% if current_user.admin? %>
+            <td><% if current_user %>
                   <%= link_to edit_price_path(price) do %>
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   <% end %>
@@ -35,7 +35,7 @@
   </div>
 
   <!-- Boutons pour admin  -->
-  <% if current_user.admin? %>
+  <% if current_user %>
     <%= link_to "Ajouter un massage",new_price_path %>
   <% end %>
 </div>

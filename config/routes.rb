@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :prices
   resources :events
   resources :partners
+  resources :users, only: [ :edit, :update ]
 
 end
