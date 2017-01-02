@@ -35,7 +35,9 @@ class PricesController < ApplicationController
   end
 
   def destroy
-    @price.destroy
+    if @price.destroy
+      redirect_to prices_path
+    end
     authorize @price
   end
 

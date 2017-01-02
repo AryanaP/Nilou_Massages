@@ -35,7 +35,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
+    if @event.destroy
+      redirect_to prices_path
+    end
     authorize @event
   end
 
