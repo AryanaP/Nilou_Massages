@@ -1,0 +1,14 @@
+<!-- insert header ? -->
+<div class="col-xs-12 col-md-offset-3 col-md-6">
+  <div class="simple_form_for">
+    <%= simple_form_for @price do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :length %>
+      <%= f.submit "Sauvegarder ", class: "btn-search" %>
+    <% end %>
+  </div>
+</div>
+
+<!-- FROALA FORM <#%= f.input :name, as: :text, input_html: {class: "edit-froala"} %> -->
