@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
+  def contact
+  end
   #voir : afficher tarifs, evenements
 
 end

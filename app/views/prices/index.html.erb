@@ -1,0 +1,41 @@
+<div class="container text-center">
+  <h1>Niloufer Massages - Tarifs </h1>
+
+  <div class="row">
+    <div class = "col-xs-12 col-md-offset-2 col-md-8">
+      <table>
+        <thead>
+          <td>Massage</td>
+          <td>Tarif</td>
+          <td>Durée</td>
+          <td><% if current_user.admin? %>
+              <%= "Modifier" %>
+            <% end %>
+          </td>
+        </thead>
+        <tbody>
+          <% @prices.each do |price| %>
+          <tr>
+            <td class="text-left"> <%= "#{price.name} : #{price.description}" %> </td>
+            <td> <%= price.price %> </td>
+            <td> <%= price.length %> </td>
+            <td><% if current_user.admin? %>
+                  <%= link_to edit_price_path(price) do %>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <% end %>
+                  <%= link_to price_path(price), method: :delete do %>
+                    <i class="fa fa-trash " aria-hidden="true"></i>
+                  <% end %>
+                <% end %> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Boutons pour admin  -->
+  <% if current_user.admin? %>
+    <%= link_to "Ajouter un massage",new_price_path %>
+  <% end %>
+</div>
