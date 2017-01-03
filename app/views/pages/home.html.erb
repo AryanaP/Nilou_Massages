@@ -23,12 +23,26 @@
 
         <div class="col-xs-12">
           <div class="home-element">
-            <h3> Tarifs </h3>
-            <ul>
-              <li>Massage 1 : 50€</li>
-              <li>Massage 2 : 50€</li>
-              <li>Massage 3 : 50€</li>
-            </ul>
+            <div class="row">
+              <div class = "col-xs-12 col-md-offset-2 col-md-8">
+                <table>
+                  <thead>
+                    <td>Massage</td>
+                    <td>Tarif</td>
+                    <td>Durée</td>
+                  </thead>
+                  <tbody>
+                    <% @prices.each do |price| %>
+                      <tr>
+                        <td class="text-left"> <%= "#{price.name} : #{price.description}" %> </td>
+                        <td> <%= price.price %> </td>
+                        <td> <%= price.length %> </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -38,10 +52,8 @@
     <div class = "col-md-4">
     <!-- Right box - nilou description-->
       <div id="nilou-sidebar" class="home-element" >
-         <h3>Description Nilou </h3>
-         <p>hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello</p>
-         <p>hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello</p>
-         <p>hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello</p>
+         <h3> <%= @admin.name %> </h3>
+         <%= @admin.description %>
       </div>
     </div>
 
