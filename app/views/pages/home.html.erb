@@ -64,8 +64,11 @@
     <div class = "col-md-4">
     <!-- Right box - nilou description-->
       <div id="nilou-sidebar" class="home-element" >
-         <h3> <%= @admin.name %> </h3>
-         <%= @admin.description %>
+        <h3> <%= @admin.name %> </h3>
+        <% if @admin.photo? %>
+          <%= cl_image_tag @admin.photo.path, width: 200, height: 300, crop: :fill %>
+        <% end %>
+        <%= @admin.description %>
       </div>
     </div>
 

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  # attachinary
+  mount Attachinary::Engine => "/attachinary"
 
   #User and login
   devise_for :users
+
 
   #pages
   root to: 'pages#home'
