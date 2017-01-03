@@ -3,10 +3,22 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.home-element {
-
-}
-
+// Niloufer sidebar
 #nilou-sidebar {
+  margin: 20px;
+}
+
+.avatar-large {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position:relative;
+}
+
+#nilou-sidebar h3 {
+  position: absolute;
+  top: 10px;
+  right : 5px;
 
 }
+
