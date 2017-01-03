@@ -17,7 +17,7 @@
           <% @prices.each do |price| %>
           <tr>
             <td class="text-left"> <%= "#{price.name} : #{price.description}" %> </td>
-            <td> <%= price.price %> </td>
+            <td> <%= price.cost %> </td>
             <td> <%= price.length %> </td>
             <td><% if current_user %>
                   <%= link_to edit_price_path(price) do %>
