@@ -8,7 +8,19 @@
       <div class="row">
         <div class = "col-xs-12">
           <div class="home-element">
-            <h3>Event : link to upcoming event </h3>
+            <% if @events.nil? || @events == [] %>
+              <p>N'hésitez-pas à consulter notre page évènement <%= link_to "ici", events_path %> </p>
+            <% elsif @events.length == 1 %>
+              <p>En ce moment : <%= @events[0].resume %> </p>
+            <% else %>
+              <p>En ce moment :
+                <ul>
+                  <% @events.each do |event| %>
+                      <li><%= event.resume %> </li>
+                  <% end %>
+                </ul>
+              </p>
+            <% end %>
           </div>
         </div>
 

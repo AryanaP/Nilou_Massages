@@ -5,15 +5,10 @@ class PagesController < ApplicationController
     @prices = policy_scope(Price).order(name: :desc)
     user = User.where(email: "niloufer@ravari.fr")
     @admin = user[0]
+    @events = Event.where(home: true)
   end
 
   def contact
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :description, :admin, :email, :password)
   end
 
 end

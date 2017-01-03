@@ -1,9 +1,9 @@
 <div class="col-xs-12 col-md-offset-3 col-md-6">
   <div class="simple_form_for">
     <%= simple_form_for @partner do |f| %>
-      <%= f.input :name %>
+      <%= f.input :name, label:"Nom" %>
       <%= f.input :description %>
-      <%= f.input :link %>
+      <%= f.input :link, label:"Site Web" %>
       <%= f.input :email %>
       <%= f.submit "Sauvegarder ", class: "btn-search" %>
     <% end %>
