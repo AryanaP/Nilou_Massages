@@ -6,6 +6,7 @@
       <%= f.input :description %>
       <%= f.input :home, :as => :boolean, label:"Phrase pour page d'accueil" %>
       <%= f.input :resume, label:"Phrase pour page d'accueil" %>
+      <%= f.input :photos, as: :attachinary %>
       <%= f.submit "Sauvegarder ", class: "btn-search" %>
     <% end %>
   </div>

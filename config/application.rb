@@ -12,8 +12,10 @@ require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# attachinary and cloudinary
+require "sprockets/railtie"
+require "attachinary/orm/active_record"
+
 Bundler.require(*Rails.groups)
 
 module NilouMassages
@@ -27,3 +29,4 @@ module NilouMassages
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
