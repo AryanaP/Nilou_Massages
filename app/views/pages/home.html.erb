@@ -1,74 +1,84 @@
 
-<div class="container text-center">
-<h1>Niloufer Massages - Page statique Home Page </h1>
+<div class="container" >
+  <h1 class="text-center"> Niloufer Massages </h1>
   <div class="row">
-    <div class = "col-xs-12 col-md-7">
-    <!-- Left box -->
-
+    <div class = "col-xs-12 col-md-8">
+  <!-- Left box -->
       <div class="row">
         <div class = "col-xs-12">
-          <div class="home-element">
-            <% if @events.nil? || @events == [] %>
-              <p>N'hésitez-pas à consulter notre page évènement <%= link_to "ici", events_path %> </p>
-            <% elsif @events.length == 1 %>
-              <p>En ce moment : <%= @events[0].resume %> </p>
-            <% else %>
-              <p>En ce moment :
-                <ul>
-                  <% @events.each do |event| %>
-                      <li><%= event.resume %> </li>
-                  <% end %>
-                </ul>
-              </p>
-            <% end %>
-          </div>
+          <% if @events.nil? || @events == [] %>
+            <p>N'hésitez-pas à consulter notre page évènement <%= link_to "ici", events_path %> </p>
+          <% elsif @events.length == 1 %>
+            <p>En ce moment : <%= @events[0].resume %> </p>
+          <% else %>
+            <p>En ce moment :
+              <ul>
+                <% @events.each do |event| %>
+                    <li><%= event.resume %> </li>
+                <% end %>
+              </ul>
+            </p>
+          <% end %>
         </div>
 
         <div class="col-xs-12">
-          <div class="home-element">
-            <h3>Massages description </h3>
-            <p>massage 1 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-            <p>massage 2 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-            <p>massage 3 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-          </div>
+          <h3>Massages description </h3>
+          <p>massage 1 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+          <p>massage 2 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+          <p>massage 3 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
         </div>
 
         <div class="col-xs-12">
-          <div class="home-element">
-            <div class="row">
-              <div class = "col-xs-12 col-md-offset-2 col-md-8">
-                <table>
-                  <thead>
-                    <td>Massage</td>
-                    <td>Tarif</td>
-                    <td>Durée</td>
-                  </thead>
-                  <tbody>
-                    <% @prices.each do |price| %>
-                      <tr>
-                        <td class="text-left"> <%= "#{price.name} : #{price.description}" %> </td>
-                        <td> <%= price.cost %> </td>
-                        <td> <%= price.length %> </td>
-                      </tr>
+          <table>
+            <thead>
+              <td> Massage </td>
+              <td> Tarif </td>
+              <td> Durée </td>
+              <% if current_user %>
+                <td>
+                  <%= "Modifier" %>
+                </td>
+              <% end %>
+            </thead>
+            <tbody>
+              <% @prices.each do |price| %>
+              <tr>
+                <td> <%= "#{price.name} : #{price.description}" %> </td>
+                <td> <%= "#{price.cost} €" %> </td>
+                <td> <%= "#{price.length} min" %> </td>
+                <% if current_user %>
+                  <td>
+                    <%= link_to edit_price_path(price) do %>
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
                     <% end %>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+                    <%= link_to price_path(price), method: :delete do %>
+                      <i class="fa fa-trash " aria-hidden="true"></i>
+                    <% end %>
+                  </td>
+                <% end %>
+               </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-    <!-- if  md or large-->
-    <div class = "col-md-4">
+  <!-- if  md or large-->
+    <div class = "col-md-offset-1 col-md-3" id="nilou-sidebar">
     <!-- Right box - nilou description-->
-      <div id="nilou-sidebar" class="home-element" >
-        <h3> <%= @admin.name %> </h3>
-        <% if @admin.photo? %>
-          <%= cl_image_tag @admin.photo.path, width: 200, height: 300, crop: :fill %>
-        <% end %>
-        <%= @admin.description %>
+      <div class="row">
+
+        <div class = "col-md-12">
+          <% if @admin.photo? %>
+            <%= cl_image_tag @admin.photo.path, width: 300, height: 300, crop: :fill, class:"avatar-large" %>
+          <% end %>
+          <h3> <%= @admin.name %> </h3>
+        </div>
+        <div class = "col-md-12">
+          <p><%= @admin.description %></p>
+        </div>
+
       </div>
     </div>
 
