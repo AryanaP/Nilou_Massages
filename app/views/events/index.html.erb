@@ -10,6 +10,7 @@
         <div class="container card-container">
           <% @events.each do |event| %>
             <div class="row">
+            <!-- event photo -->
               <div class="col-xs-12 col-sm-6">
                 <% if event.photos? %>
                   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
@@ -21,8 +22,11 @@
                   <!-- ATTENTION A LA LANGUE DE LA DATE -->
                   </div>
               </div>
+
+              <!-- event description -->
               <div class="col-xs-12 col-sm-6">
                 <% if current_user %>
+                    <h3> <%= event.name %> </h3>
                   <% if event.home? %>
                     <i style="color:green" class="fa fa-check" aria-hidden="true"></i>
                   <% else %>

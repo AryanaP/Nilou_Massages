@@ -1,42 +1,57 @@
 <div class="container">
   <h1 class="text-center">Niloufer Massages - Partenaires </h1>
 
-  <div class="row">
-    <div class = "col-xs-12 col-md-offset-2 col-md-8">
-      <table>
-        <thead>
-          <td>Partenaire</td>
-          <td>Description</td>
-          <td>Contact</td>
-          <td><% if current_user %>
-              <%= "Modifier" %>
-            <% end %>
-          </td>
-        </thead>
-        <tbody>
-          <% @partners.each do |partner| %>
-          <tr>
-            <td> <%= partner.name %> </td>
-            <td> <%= partner.description %> </td>
-            <td> <%= "#{partner.email} #{partner.link}" %> </td>
-            <!-- Boutons pour admin  -->
-            <td><% if current_user %>
-                  <%= link_to edit_partner_path(partner) do %>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  <% end %>
-                  <%= link_to partner_path(partner), method: :delete do %>
-                    <i class="fa fa-trash " aria-hidden="true"></i>
-                  <% end %>
-                <% end %> </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <% if current_user %>
-        <%= link_to "Ajouter un Partenaire",new_partner_path %>
-      <% end %>
-    </div>
-  </div>
 
-  <!-- Boutons pour admin  -->
+    <% if current_user %>
+      <%= link_to "Ajouter un Partenaire",new_partner_path  %>
+    <% end %>
+
+    <div class="wrapper-grey">
+      <div class="container card-container">
+        <% @partners.each do |partner| %>
+          <div class="row">
+            <!-- description partner -->
+            <div class="col-xs-12 col-sm-6">
+              <% if current_user %>
+                  <h3> <%= partner.name %>
+                <%= link_to edit_partner_path(partner) do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to partner_path(partner), method: :delete do %>
+                  <i class="fa fa-trash " aria-hidden="true"></i>
+                <% end %>
+              <% else %>
+                <div>
+                  <h2><%= partner.name %></h2>
+                  <% if partner.link && partner.email %>
+                    <p> <%= link_to "Site internet : #{partner.link}", partner.link %> </p>
+                    <p> <%= "Email : #{partner.email}" %> </p>
+                  <% elsif partner.link %>
+                    <p> <%= link_to "Site internet : #{partner.link}", partner.link %>  </p>
+                  <% elsif partner.email %>
+                    <p> <%= "Email : #{partner.email}" %> </p>
+                  <% end %>
+                  <p><%= partner.description %></p>
+                </div>
+              <% end %>
+            </div>
+
+            <!-- photo partner -->
+            <div class="col-xs-12 col-sm-6">
+              <% if partner.photos? %>
+                <div class="partner-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path partner.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
+              <% else %>
+                <div class="partner-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
+              <% end %>
+                <!-- ATTENTION A LA LANGUE DE LA DATE -->
+                </div>
+            </div>
+          </div>
+            <% end %>
+
+
+      </div>
+    <!-- Boutons pour admin  -->
+    </div>
 </div>
+
