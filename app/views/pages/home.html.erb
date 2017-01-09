@@ -23,7 +23,7 @@
         <div class="card-category"><%= event.date.strftime('%a %d %b %Y') %></div>
         <div class="card-description">
           <h2><%= event.name %></h2>
-          <p><%= event.home %></p>
+          <p><%= event.resume %></p>
         </div>
         <%= link_to "", events_path, class: "card-link" %>
           </div>
@@ -42,54 +42,21 @@
          <i class="fa fa-chevron-circle-down bg-grey" aria-hidden="true"></i>
       </div>
 
-      <div class = "col-xs-12 col-md-8">
       <!-- Left box -->
+      <div class = "col-xs-12 col-md-8">
         <div class="row">
           <div class="col-xs-12">
             <h3>Massages description </h3>
+            <p> Le massage ayurvédique zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zf zfe zff zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf </p>
             <p>massage 1 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
             <p>massage 2 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
             <p>massage 3 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
           </div>
-
-         <!--  <div class="col-xs-12">
-            <table>
-              <thead>
-                <td> Massage </td>
-                <td> Tarif </td>
-                <td> Durée </td>
-                <"% if current_user %>
-                  <td>
-                    <#%= "Modifier" %>
-                  </td>
-                <"% end %>
-              </thead>
-              <tbody>
-                <"% @prices.each do |price| %>
-                <tr>
-                  <td> <#%= "#{price.name} : #{price.description}" %> </td>
-                  <td> <#%= "#{price.cost} €" %> </td>
-                  <td> <#%= "#{price.length} min" %> </td>
-                  <"% if current_user %>
-                    <td>
-                      <#%= link_to edit_price_path(price) do %>
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      <#% end %>
-                      <#%= link_to price_path(price), method: :delete do %>
-                        <i class="fa fa-trash " aria-hidden="true"></i>
-                      <"% end %>
-                    </td>
-                  <"% end %>
-                 </tr>
-                <"% end %>
-              </tbody>
-            </table>
-          </div> -->
         </div>
       </div>
 
     <!-- if  md or large-->
-      <div class = "col-md-offset-1 col-md-3" id="nilou-sidebar">
+      <div class = "col-xs-12 col-md-offset-1 col-md-3" id="nilou-sidebar">
       <!-- Right box - nilou description-->
         <div class="row">
 
