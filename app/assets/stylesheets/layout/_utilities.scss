@@ -11,15 +11,26 @@
 }
 
 // Backgrounds
-.bg-black {
-  background: #4a4a4a;
-}
+
 .bg-grey {
-  background: #aeaeae;
+  background-color: #efefef;
+  color: $orange;
 }
-.bg-blue {
-  background: #00a3e1;
+
+.bg-orange {
+  background-color: $orange;
+  color: white;
 }
-.bg-dark-blue {
-  background: #3b5998;
+
+.fa-chevron-circle-down {
+  margin:none;
+  font-size: 45px;
+  position:absolute;
+  bottom: -35px;
+  left: 50%;
+}
+
+.container-margin {
+  margin: 20px;
+  margin-bottom: 20px
 }
