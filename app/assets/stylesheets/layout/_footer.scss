@@ -1,1 +1,26 @@
 // Your footer style
+
+#footer {
+  background: white;
+  border-top: 2px solid $orange;
+  padding: 10px 0;
+  color: $orange;
+  font-size: 14px;
+  line-height: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+}
+
+.footer-content {
+  text-align:center;
+}
+
+#mentions-legales {
+  p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

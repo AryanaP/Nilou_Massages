@@ -4,6 +4,17 @@
  * Feel free to change them and create your own
  * ------------------------------------- */
 
+// Body height for footer
+html {
+  height: 100%
+}
+
+body {
+  min-height: 100%;
+  position:relative;
+  padding-bottom: 100px;
+}
+
 // Paddings
 .padded {
   padding-top: 5em;
@@ -29,6 +40,17 @@
   position:absolute;
   bottom: -35px;
   left: 50%;
+}
+
+.fa-chevron-circle-down:hover {
+  margin:none;
+  font-size: 50px;
+  position:absolute;
+  bottom: -35px;
+  left: 50%;
+  color: $red;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .container-margin {
