@@ -5,30 +5,45 @@
   </div>
 </div>
 
+
+
+<!-- Cards code -->
+<div class="container card-container">
+  <% if @events.nil? || @events == [] %>
+    <p>N'hésitez-pas à consulter notre page évènement <%= link_to "ici", events_path %> </p>
+  <% else %>
+    <h3>En ce moment </h3>
+    <% @events.each do |event| %>
+      <div class="col-xs-12 col-sm-6">
+        <% if event.photos? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
+        <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
+        <% end %>
+        <div class="card-category"><%= event.date.strftime('%a %d %b %Y') %></div>
+        <div class="card-description">
+          <h2><%= event.name %></h2>
+          <p><%= event.home %></p>
+        </div>
+        <%= link_to "", events_path, class: "card-link" %>
+          </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
 <div class="container" >
   <div class= "container-margin">
     <div class="row">
-      <div class = "col-xs-12" id="event-container">
-        <% if @events.nil? || @events == [] %>
-          <p>N'hésitez-pas à consulter notre page évènement <%= link_to "ici", events_path %> </p>
-        <% elsif @events.length == 1 %>
-          <p> <h3>En ce moment :</h3> <%= @events[0].resume %> </p>
-        <% else %>
-          <p><h3>En ce moment </h3>
-            <ul>
-              <% @events.each do |event| %>
-                  <li><%= event.resume %> </li>
-              <% end %>
-            </ul>
-          </p>
-        <% end %>
-        <i class="fa fa-chevron-circle-down bg-grey" aria-hidden="true"></i>
-      </div>
-      <!-- scroll down line  -->
 
+      <!-- scroll down line  -->
+      <div class = "col-xs-12" id="event-container">
+         <i class="fa fa-chevron-circle-down bg-grey" aria-hidden="true"></i>
+      </div>
 
       <div class = "col-xs-12 col-md-8">
-    <!-- Left box -->
+      <!-- Left box -->
         <div class="row">
           <div class="col-xs-12">
             <h3>Massages description </h3>
