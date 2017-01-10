@@ -6,52 +6,93 @@
         <%= link_to "Ajouter un Evenement",new_event_path %>
       <% end %>
 
-      <div class="wrapper-grey">
-        <div class="container card-container">
-          <% @events.each do |event| %>
-            <div class="row">
-            <!-- event photo -->
-              <div class="col-xs-12 col-sm-6">
-                <% if event.photos? %>
-                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
-                <% else %>
-                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
-                <% end %>
-                <div class="card-category"><%= event.date.strftime('%a %d %b %Y') %>
-                </div>
-                  <!-- ATTENTION A LA LANGUE DE LA DATE -->
-                  </div>
-              </div>
 
-              <!-- event description -->
-              <div class="col-xs-12 col-sm-6">
-                <% if current_user %>
-                    <h3> <%= event.name %> </h3>
-                  <% if event.home? %>
-                    <i style="color:green" class="fa fa-check" aria-hidden="true"></i>
+<!-- Tentative ajout carousel  -->
+    <link href="bootstrap-carousel-fit" rel="stylesheet" />
+    <script src="bootstrap-carousel-fit"/></script/>
+
+    <div class="wrapper-grey">
+      <div class="container">
+        <% @events.each do |event| %>
+          <div class="row">
+          <!-- event photo -->
+            <div class="col-xs-12 col-sm-6 card-container">
+              <% if event.photos? %>
+
+                <div id="myCarousel" class="carousel slide carousel-fit" data-ride="carousel">
+
+                 <div class="card">
+
+                  <!-- Wrapper for slides -->
+                  <% if event.photos.length > 1 %>
+                    <div class="carousel-inner">
+                      <div class="item active card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt: 'Slideshow' %>')">
+                      </div>
+                      <% for i in 1..event.photos.length-1 do %>
+                        <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[i].path, alt:'Slideshow' %>')">
+                        </div>
+                      <% end %>
+                    </div>
                   <% else %>
-                    <i style="color:red" class="fa fa-times" aria-hidden="true"></i>
+                    <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, :alt => 'Slideshow' %>')">
+                        </div>
+                  <%end %>
+                  <!-- Indicators (little white dots)-->
+                  <% if event.photos.length > 1 %>
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to= "0" class="active"></li>
+                      <% for i in 1..event.photos.length-1 do %>
+                        <li data-target="#myCarousel" data-slide-to= <%"#{i}"%> ></li>
+                      <% end %>
+                    </ol>
                   <% end %>
-                  <%= link_to edit_event_path(event) do %>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  <% end %>
-                  <%= link_to event_path(event), method: :delete do %>
-                    <i class="fa fa-trash " aria-hidden="true"></i>
-                  <% end %>
-                <% else %>
-                  <div>
-                    <h2><%= event.name %></h2>
-                    <p><%= event.description %></p>
-                  </div>
-                <% end %>
-              </div>
 
+
+                  <!-- Controls chevrons left and right -->
+                  <% if event.photos.length > 1 %>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                  <% end %>
+                </div>
+
+              <% else %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
+              <% end %>
+              <div class="card-category"><%= event.date.strftime('%a %d %b %Y') %>
+              </div>
+                <!-- ATTENTION A LA LANGUE DE LA DATE -->
+                </div>
+            </div>
+            <!-- event description -->
+            <div class="col-xs-12 col-sm-6">
+              <% if current_user %>
+                  <h3> <%= event.name %> </h3>
+                <% if event.home? %>
+                  <i style="color:green" class="fa fa-check" aria-hidden="true"></i>
+                <% else %>
+                  <i style="color:red" class="fa fa-times" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to edit_event_path(event) do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to event_path(event), method: :delete do %>
+                  <i class="fa fa-trash " aria-hidden="true"></i>
+                <% end %>
+              <% else %>
+                <div>
+                  <h2><%= event.name %></h2>
+                  <p><%= event.description %></p>
+                </div>
+              <% end %>
+            </div>
 
           </div>
-              <% end %>
-
-
-        </div>
+       <% end %>
+      </div>
+    </div>
     <!-- Boutons pour admin  -->
-  </div>
 </div>
