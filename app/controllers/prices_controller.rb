@@ -3,7 +3,7 @@ class PricesController < ApplicationController
   before_action :set_price, only: [:edit, :update, :destroy]
 
   def index
-    @prices = policy_scope(Price).order(name: :desc)
+    @prices = policy_scope(Price).order(number: :asc)
   end
 
   def new
