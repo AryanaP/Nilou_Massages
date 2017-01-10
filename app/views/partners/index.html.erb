@@ -1,6 +1,9 @@
+
 <div class="container">
   <h1 class="text-center">Niloufer Massages - Partenaires </h1>
 
+<link href="bootstrap-carousel-fit" rel="stylesheet" />
+<script src="bootstrap-carousel-fit"/></script/>
 
     <% if current_user %>
       <%= link_to "Ajouter un Partenaire",new_partner_path  %>
@@ -39,7 +42,50 @@
             <!-- photo partner -->
             <div class="col-xs-12 col-sm-6">
               <% if partner.photos? %>
-                <div class="partner-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path partner.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
+
+                <div id="myCarousel" class="carousel slide carousel-fit" data-ride="carousel">
+                  <div class="partner-card">
+
+                  <!-- Wrapper for slides -->
+                    <% if partner.photos.length > 1 %>
+                      <div class="carousel-inner">
+                        <div class="item active card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path partner.photos[0].path, alt: 'Slideshow' %>')">
+                        </div>
+                        <% for i in 1..partner.photos.length-1 do %>
+                          <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path partner.photos[i].path, alt:'Slideshow' %>')">
+                          </div>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path partner.photos[0].path, :alt => 'Slideshow' %>')">
+                      </div>
+                    <%end %>
+                  <!-- Indicators (little white dots)-->
+                    <% if partner.photos.length > 1 %>
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to= "0" class="active"></li>
+                        <% for i in 1..partner.photos.length-1 do %>
+                          <li data-target="#myCarousel" data-slide-to= <%"#{i}"%> ></li>
+                        <% end %>
+                      </ol>
+                    <% end %>
+
+
+                  <!-- Controls chevrons left and right -->
+                    <% if partner.photos.length > 1 %>
+                      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+                    <% end %>
+                  </div>
+
+
+
+
+
               <% else %>
                 <div class="partner-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
               <% end %>
@@ -48,6 +94,9 @@
             </div>
           </div>
             <% end %>
+
+
+
 
 
       </div>
