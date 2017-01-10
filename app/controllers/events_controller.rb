@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:edit, :update, :destroy]
 
   def index
-    @events = policy_scope(Event).order(date: :desc)
+    @events = policy_scope(Event).order(number: :asc)
   end
 
   def new

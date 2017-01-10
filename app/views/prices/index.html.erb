@@ -2,6 +2,11 @@
   <div class="row">
     <div class = "col-xs-12 col-md-offset-2 col-md-8">
       <h1 class="text-center" >Niloufer Massages - Tarifs </h1>
+
+      <% if current_user %>
+        <%= link_to "Ajouter un massage",new_price_path %>
+      <% end %>
+
       <table>
         <thead>
           <td> Massage </td>
@@ -34,10 +39,6 @@
         </tbody>
       </table>
 
-  <!-- Boutons pour admin  -->
-    <% if current_user %>
-      <%= link_to "Ajouter un massage",new_price_path %>
-    <% end %>
 
     </div>
   </div>
