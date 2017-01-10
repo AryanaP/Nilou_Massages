@@ -16,9 +16,9 @@
     <% @events.each do |event| %>
       <div class="col-xs-12 col-sm-6">
         <% if event.photos? %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
+          <div class="card-front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos.first.path, height: 175, width: 360, crop: :fill; %>');">
         <% else %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
+          <div class="card-front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
         <% end %>
         <div class="card-category"><%= event.date.strftime('%a %d %b %Y') %></div>
         <div class="card-description">
@@ -34,7 +34,7 @@
 
 
 <div class="container" >
-  <div class= "container-margin">
+  <div class="container-margin">
     <div class="row">
 
       <!-- scroll down line  -->
