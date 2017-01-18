@@ -1,0 +1,50 @@
+ #talkbubble {
+  width: 200px;
+  height: 80px;
+  padding-top: 5px;
+  margin: 5px 0;
+  // background: $orange;
+  background : rgba(255,123,0, 0.8);
+  position: relative;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+
+  p, h4 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+#talkbubble:before {
+  content:"";
+  position: absolute;
+  left: 100%;
+  top: 26px;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-left: 26px solid rgba(255,123,0, 0.8);
+  border-bottom: 13px solid transparent;
+}
+
+span {
+  height: 80px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#price-bubble {
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: $orange;
+  border-radius: 10px;
+  color: white;
+  font-height: 15px;
+}

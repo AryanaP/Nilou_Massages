@@ -48,7 +48,7 @@ class PricesController < ApplicationController
   end
 
   def price_params
-    params.require(:price).permit(:name, :description, :cost, :length)
+    params.require(:price).permit(:name, :description, :cost, :length, :number)
   end
 
 end

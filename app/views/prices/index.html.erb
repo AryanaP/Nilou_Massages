@@ -1,44 +1,39 @@
 <div class="container">
   <div class="row">
     <div class = "col-xs-12 col-md-offset-2 col-md-8">
-      <h1 class="text-center" >Niloufer Massages - Tarifs </h1>
+      <h1 class="text-center" >Tarifs </h1>
 
       <% if current_user %>
         <%= link_to "Ajouter un massage",new_price_path %>
       <% end %>
 
-      <table>
-        <thead>
-          <td> Massage </td>
-          <td> Tarif </td>
-          <td> Durée </td>
-          <% if current_user %>
-            <td>
-              <%= "Modifier" %>
-            </td>
-          <% end %>
-        </thead>
-        <tbody>
-          <% @prices.each do |price| %>
-          <tr>
-            <td> <%= "#{price.name} : #{price.description}" %> </td>
-            <td> <%= "#{price.cost} €" %> </td>
-            <td> <%= "#{price.length} min" %> </td>
-            <% if current_user %>
-              <td>
+        <!-- TALK BUBBLE -->
+      <% @prices.each do |price| %>
+        <div class="row">
+
+          <div class = "col-xs-6 col-md-4">
+            <div id="talkbubble">
+              <h4><%= price.name.upcase %></h4>
+              <div id="price-bubble"><%= "#{price.cost} €" %></div>
+            </div>
+          </div>
+
+          <div class = "col-xs-6 col-md-8">
+            <span> <strong> <%= "#{price.length} min :" %> </strong>
+              <%= price.description %>
+              <% if current_user %>
                 <%= link_to edit_price_path(price) do %>
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                 <% end %>
                 <%= link_to price_path(price), method: :delete do %>
                   <i class="fa fa-trash " aria-hidden="true"></i>
                 <% end %>
-              </td>
-            <% end %>
-           </tr>
-          <% end %>
-        </tbody>
-      </table>
+              <% end %>
+            </span>
+          </div>
 
+        </div>
+      <% end %>
 
     </div>
   </div>
