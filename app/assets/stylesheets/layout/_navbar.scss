@@ -21,14 +21,15 @@
 
 /*flexbox mise en page menu*/
 .menu-container {
-  flex: 0 50%;
+  flex: 0 70%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+    text-align: center;
 }
 
 .menu-item {
-  flex: 0 0 10%;
+  flex: 0 0 20%;
 }
 
 
