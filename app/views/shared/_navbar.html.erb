@@ -18,35 +18,35 @@
   <div class="menu-container hidden-xs hidden-sm">
     <div class="menu-item">
       <!-- CHANGE ROUTE NAME -->
-      <%= link_to "A propos", contact_path %>
+      <%= link_to "A PROPOS", contact_path %>
     </div>
     <div class="menu-item">
-      <%= link_to "Massages", prices_path %>
+      <%= link_to "MASSAGES", prices_path %>
     </div>
     <div class="menu-item">
-      <%= link_to "Evènements", events_path %>
+      <%= link_to "EVENEMENTS", events_path %>
     </div>
     <div class="menu-item">
-    <%= link_to "Partenaires", partners_path %>
+    <%= link_to "PARTENAIRES", partners_path %>
     </div>
 
-    <% if current_user %>
+    <!-- <#% if current_user %>
       <div class="menu-item">
-        <%= link_to edit_user_path(current_user) do %>
+        <#%= link_to edit_user_path(current_user) do %>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to destroy_user_session_path, method: :delete  do %>
+        <#% end %>
+        <#%= link_to destroy_user_session_path, method: :delete  do %>
           <i class="fa fa-window-close-o" aria-hidden="true"></i>
-        <% end %>
+        <#% end %> -->
 
-      </div>
-    <% else %>
+    <!--   </div>
+    <#% else %>
       <div class="menu-item">
-        <%= link_to new_user_session_path do %>
+        <#%= link_to new_user_session_path do %>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        <% end %>
+        <#% end %>
       </div>
-    <% end %>
+    <#% end %> -->
   </div>
 
 
