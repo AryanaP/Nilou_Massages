@@ -7,14 +7,15 @@
 .banner {
   color: white;
   text-align: center;
-  height: 50vh;
+  height: 400px;
+  width: 80%;
+  margin:auto;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
   // image
-  background-image: image-url('background.jpeg'), linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+  background-image: image-url('waterlily.jpeg'), linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
 }
 
 .banner h1 {
@@ -29,13 +30,6 @@
   margin-bottom: 20px;
 }
 
-#scroll-container{
-  h3 {
-    text-align: center;
-  }
-  border-bottom: 5px solid $orange;
-  margin-bottom: 20px;
-}
 
 // Niloufer sidebar
 #nilou-sidebar {
