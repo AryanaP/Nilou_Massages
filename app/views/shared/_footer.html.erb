@@ -4,6 +4,23 @@
       <div class="footer-content col-xs-12 col-sm-10 col-sm-offset-1">
           <p id="mentions-legales"> © 2017 - Aryana Pezé - Sartrouville</br>
           <b> Mentions légales </b> Hébergement : Heroku Inc., 650 7th Street, San Francisco, CA (tel : +33 1 (877) 563-4311) </p>
+          <% if current_user %>
+            <div>
+              <%= link_to edit_user_path(current_user) do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete  do %>
+                <i class="fa fa-window-close-o" aria-hidden="true"></i>
+              <% end %>
+
+            </div>
+          <% else %>
+            <div>
+              <%= link_to new_user_session_path do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>

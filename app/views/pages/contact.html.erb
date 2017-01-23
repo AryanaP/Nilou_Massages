@@ -1,17 +1,31 @@
-<div class="container text-center">
-  <h1>Contact </h1>
 
-  <!-- contact info -->
-  <div class="row">
-    <div class = "col-xs-12 col-md-6">
-      <ul>
-        <li> Name : Nilou </li>
-        <li> Email : Nilou@etc </li>
-        <li> Phone : Tel number </li>
-      </ul>
+<div class="container about-margin" >
+  <h1 class="text-center">A Propos </h1>
+    <!-- MASSAGES -->
+    <div class="about-div">
+      <div class = "about-item-msg">
+        <h3>Massages description </h3>
+        <p> Le massage ayurvédique zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zf zfe zff zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf </p>
+        <p>massage 1 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+        <p>massage 2 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+        <p>massage 3 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+      </div>
+      <div>
+          <%= image_tag "wellness.jpeg", class:"photo-large" %>
+      </div>
     </div>
 
-    <div class = "col-xs-12 col-md-6">
-      Formulaire de contact ?
+      <!-- NILOU DESCRIPTION-->
+    <div class="about-div">
+      <div>
+        <% if @admin.photo? %>
+          <%= cl_image_tag @admin.photo.path, crop: :fill, class:"photo-large" %>
+        <% end %>
+      </div>
+      <div class = "about-item-nil">
+        <h3> <%= @admin.name %> </h3>
+        <p><%= @admin.description %></p>
+      </div>
     </div>
-  </div>
+
+</div>

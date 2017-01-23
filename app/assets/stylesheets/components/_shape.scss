@@ -1,19 +1,24 @@
+$transparent: rgba(255, 255, 255, 0.8);
+
  #talkbubble {
-  width: 200px;
-  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  height: 150px;
   padding-top: 5px;
   margin: 5px 0;
-  // background: $orange;
-  background : rgba(255,123,0, 0.8);
+  background: $transparent;
   position: relative;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 
-  p, h4 {
-    color: white;
+  h4 {
+    color: $burgandy;
     text-align: center;
     font-weight: bold;
+    flex: 1 0;
   }
 }
 
@@ -21,12 +26,12 @@
   content:"";
   position: absolute;
   left: 100%;
-  top: 26px;
+  top: 55px;
   width: 0;
   height: 0;
-  border-top: 13px solid transparent;
-  border-left: 26px solid rgba(255,123,0, 0.8);
-  border-bottom: 13px solid transparent;
+  border-top: 25px solid transparent;
+  border-left: 15px solid $transparent;
+  border-bottom: 25px solid transparent;
 }
 
 span {
@@ -35,16 +40,20 @@ span {
   vertical-align: middle;
 }
 
-#price-bubble {
-  height: 30px;
-  width: 50px;
-  text-align: center;
-  padding-top: 5px;
+.flex-price {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
-  background-color: $orange;
-  border-radius: 10px;
-  color: white;
-  font-height: 15px;
+  height: 40px;
+  color: $burgandy;
+  bottom: 2px;
+  left: 20px;
 }
+
+.flex-length {
+  position: absolute;
+  left: 130px;
+  bottom: 2px;
+  height: 40px;
+  color: $burgandy;
+}
+
+

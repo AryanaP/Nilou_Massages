@@ -11,10 +11,10 @@ html {
 }
 
 body {
+  background: $burgandy;
   min-height: 100%;
   position:relative;
   padding-bottom: 100px;
-  background: $burgandy;
 }
 
 // Paddings
@@ -27,12 +27,7 @@ body {
 
 .bg-white {
   background-color: white;
-  color: $orange;
-}
-
-.bg-orange {
-  background-color: $orange;
-  color: white;
+  color: $burgandy;
 }
 
 .bg-burgandy {
@@ -40,14 +35,8 @@ body {
   color: white;
 }
 
-
-// Margin
-.container-margin {
-  margin: 20px;
-  margin-bottom: 20px
-}
-
 .margin-top {
   margin-top: 30px;
 }
+
 
