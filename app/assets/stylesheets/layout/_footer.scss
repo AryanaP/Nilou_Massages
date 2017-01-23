@@ -1,10 +1,10 @@
 // Your footer style
 
 #footer {
-  background: white;
-  border-top: 2px solid $orange;
+  background: $burgandy;
+  border-top: 2px solid white;
   padding: 10px 0;
-  color: $orange;
+  color: white;
   font-size: 14px;
   line-height: 16px;
   position: absolute;
@@ -23,4 +23,8 @@
     font-size: 14px;
     line-height: 16px;
   }
+}
+
+.fa-pencil-square-o {
+  color: white;
 }

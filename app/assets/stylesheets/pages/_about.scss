@@ -1,0 +1,31 @@
+// PHOTOS
+.photo-large {
+  width: 300px;
+  border-radius: 5px;
+}
+
+
+// Margin
+.about-margin {
+  margin: 20px auto;
+  width: 1000px;
+}
+
+// FLEXBOX TEXT
+.about-div {
+  text-align: justify;
+  margin-top : 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-item-msg {
+  flex: 1 0 70%;
+  margin-right: 50px;
+}
+
+.about-item-nil {
+  flex: 0 0 70%;
+  margin-left: 50px;
+}

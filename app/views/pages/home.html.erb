@@ -21,7 +21,7 @@
         <div class="card-description">
           <h2><%= event.name %></h2>
           <p><%= event.resume %></p>
-        </div>
+       </div>
         <%= link_to "", events_path, class: "card-link" %>
           </div>
       </div>
@@ -30,41 +30,3 @@
 </div>
 
 
-<div class="container" >
-  <div class="container-margin">
-    <div class="row">
-
-      <!-- Left box -->
-      <div class = "col-xs-12 col-md-8">
-        <div class="row">
-          <div class="col-xs-12">
-            <h3 id="scroll-to">Massages description </h3>
-            <p> Le massage ayurvédique zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zf zfe zff zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf zefoiheqf fzoqhf qfdhozqfhoz  fzef fzefzf ezf </p>
-            <p>massage 1 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-            <p>massage 2 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-            <p>massage 3 : bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-          </div>
-        </div>
-      </div>
-
-    <!-- if  md or large-->
-      <div class = "col-xs-12 col-md-offset-1 col-md-3" id="nilou-sidebar">
-      <!-- Right box - nilou description-->
-        <div class="row">
-
-          <div class = "col-md-12">
-            <% if @admin.photo? %>
-              <%= cl_image_tag @admin.photo.path, width: 300, height: 300, crop: :fill, class:"avatar-large" %>
-            <% end %>
-            <h3> <%= @admin.name %> </h3>
-          </div>
-          <div class = "col-md-12">
-            <p><%= @admin.description %></p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>

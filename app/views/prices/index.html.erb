@@ -14,12 +14,13 @@
           <div class = "col-xs-6 col-md-4">
             <div id="talkbubble">
               <h4><%= price.name.upcase %></h4>
-              <div id="price-bubble"><%= "#{price.cost} €" %></div>
             </div>
+            <i class="fa fa-money flex-price" aria-hidden="true"> <%= "#{price.cost} €" %></i>
+            <i class="fa fa-clock-o flex-length" aria-hidden="true"> <%= "#{price.length} min" %></i>
           </div>
 
           <div class = "col-xs-6 col-md-8">
-            <span> <strong> <%= "#{price.length} min :" %> </strong>
+            <span>
               <%= price.description %>
               <% if current_user %>
                 <%= link_to edit_price_path(price) do %>
@@ -38,3 +39,4 @@
     </div>
   </div>
 </div>
+
