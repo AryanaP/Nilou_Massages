@@ -1,15 +1,38 @@
 /* Main class */
-.navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
-  transition: all 0.3s ease;
-  display: flex;
-  height: 70px;
-  padding: 0px 30px;
-  align-items: center;
-  justify-content: space-between;
-  color: $orange;
+
+// BARRE DU HAUT
+.topbar {
+  color: white;
   font-size: 20px;
+  width: 80%;
+  margin:50px auto 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-item {
+  margin-right: 50px;
+
+  img {
+    width: 80px;
+    margin-left: 50px;
+  }
+}
+
+
+// NAVBAR
+.navbar-wagon {
+  background: white;
+  height: 50px;
+  color: black;
+  font-size: 20px;
+  width: 80%;
+  margin:30px auto 10px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
   a {
     color: inherit;
     &:hover {
@@ -21,15 +44,17 @@
 
 /*flexbox mise en page menu*/
 .menu-container {
-  flex: 0 70%;
+  flex: 1 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-    text-align: center;
+  text-align: center;
+  border-top: solid black 2px;
+  border-bottom: solid black 2px;
 }
 
 .menu-item {
-  flex: 0 0 20%;
+  flex: 0 0 200px;
 }
 
 
@@ -42,17 +67,13 @@
 //   width: 100%;
 // }
 
-/* Navbar logo */
-.navbar-wagon-brand img {
-  width: 50px;
-  flex: 1 0 auto;
-}
+
 
 /* Navbar item */
 .navbar-wagon-item {
-  flex: 0 1 auto;
+  text-align: right;
+  align-items: center;
   cursor: pointer;
-  padding: 0 20px;
 }
 
 /* Navbar standard link */

@@ -1,21 +1,33 @@
-<div class="navbar-wagon bg-white">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+<div class="topbar">
+  <%= link_to root_path, class: "topbar-item" do %>
     <%= image_tag "pink_lotus.jpeg" %>
   <% end %>
 
+    <div class="topbar-item">
+      <ul>
+        <li> Niloufer Ravari </li>
+        <li> <i class="fa fa-envelope" aria-hidden="true"></i> : niloufer@ravari.fr </li>
+        <li> <i class="fa fa-mobile" aria-hidden="true" ></i> : 06 15 73 21 04 </li>
+        <li> <i class="fa fa-map-marker" aria-hidden="true"></i> : Yvelines & Paris </li>
+      </ul>
+    </div>
+</div>
+<div class="navbar-wagon bg-white">
+
   <div class="menu-container hidden-xs hidden-sm">
     <div class="menu-item">
-      <%= link_to "Tarifs", prices_path %>
+      <!-- CHANGE ROUTE NAME -->
+      <%= link_to "A propos", contact_path %>
+    </div>
+    <div class="menu-item">
+      <%= link_to "Massages", prices_path %>
     </div>
     <div class="menu-item">
       <%= link_to "Evènements", events_path %>
     </div>
     <div class="menu-item">
     <%= link_to "Partenaires", partners_path %>
-    </div>
-    <div class="menu-item">
-      <%= link_to "Contact", contact_path %>
     </div>
 
     <% if current_user %>
