@@ -26,15 +26,15 @@
                   <!-- Wrapper for slides -->
                   <% if event.photos.length > 1 %>
                     <div class="carousel-inner">
-                      <div class="item active card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt: 'Slideshow' %>')">
+                      <div class="item active card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt: 'Event Slideshow' %>')">
                       </div>
                       <% for i in 1..event.photos.length-1 do %>
-                        <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[i].path, alt:'Slideshow' %>')">
+                        <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[i].path, alt:'Event Slideshow' %>')">
                         </div>
                       <% end %>
                     </div>
                   <% else %>
-                    <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, :alt => 'Slideshow' %>')">
+                    <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt:'EventsSlideshow' %>')">
                         </div>
                   <%end %>
                   <!-- Indicators (little white dots)-->

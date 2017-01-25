@@ -53,14 +53,21 @@
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
+  bottom: 50px;
   left: 10px;
   h2 {
     font-size: 24px;
   }
   p {
-  font-size: 13px;
+  font-size: 18px;
   }
+}
+
+.card-title {
+  position: absolute ;
+  top: 10px;
+  left: 30px;
+  font-family : black 900;
 }
 
 .card-link {

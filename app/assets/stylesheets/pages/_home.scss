@@ -10,6 +10,7 @@
   height: 400px;
   width: 80%;
   margin:auto;
+  margin-top: 20px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   display: flex;
   align-items: center;
@@ -30,5 +31,17 @@
   margin-bottom: 20px;
 }
 
+#home-container {
+  height: 400px;
+  width: 80%;
+  margin:auto;
+  margin-top: 60px;
+}
 
+#massage-background {
+  background-image: image-url('massage.jpeg'), linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+}
 
+#evennt-background {
+  background-image: image-url('event.jpg'), linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+}
