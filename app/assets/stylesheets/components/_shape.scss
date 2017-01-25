@@ -17,7 +17,7 @@ $transparent: rgba(255, 255, 255, 0.8);
   h4 {
     color: $burgandy;
     text-align: center;
-    font-weight: bold;
+    font-family: bold 700;
     flex: 1 0;
   }
 }
@@ -46,6 +46,7 @@ span {
   color: $burgandy;
   bottom: 2px;
   left: 20px;
+  // font-family: 'Raleway', sans-serif;
 }
 
 .flex-length {
@@ -54,6 +55,12 @@ span {
   bottom: 2px;
   height: 40px;
   color: $burgandy;
+   // font-family: 'Raleway', sans-serif;
 }
 
-
+i {
+  p {
+  display:inline;
+  font-family: 'Raleway', sans-serif;
+  }
+}
