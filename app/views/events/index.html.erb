@@ -8,8 +8,8 @@
 
 
 <!-- Tentative ajout carousel  -->
-    <link href="bootstrap-carousel-fit" rel="stylesheet" />
-    <script src="bootstrap-carousel-fit"/></script/>
+    <!-- <link href="bootstrap-carousel-fit" rel="stylesheet" /> -->
+    <!-- <script src="bootstrap-carousel-fit"/></script> -->
 
     <div class="wrapper-grey">
       <div class="container">
@@ -17,14 +17,12 @@
           <div class="row">
           <!-- event photo -->
             <div class="col-xs-12 col-sm-6 card-container">
-              <% if event.photos? %>
-
-                <div id="myCarousel" class="carousel slide carousel-fit" data-ride="carousel">
-
-                 <div class="card">
-
+              <div id="myCarousel" class="carousel slide carousel-fit" data-ride="carousel">
+                <div class="card">
+                  <% if !event.photos? %>
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');"></div>
                   <!-- Wrapper for slides -->
-                  <% if event.photos.length > 1 %>
+                  <% elsif event.photos.length > 1 %>
                     <div class="carousel-inner">
                       <div class="item active card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt: 'Event Slideshow' %>')">
                       </div>
@@ -34,39 +32,36 @@
                       <% end %>
                     </div>
                   <% else %>
-                    <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt:'EventsSlideshow' %>')">
-                        </div>
+                    <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos[0].path, alt:'Event Slideshow' %>')">
+                    </div>
                   <%end %>
-                  <!-- Indicators (little white dots)-->
-                  <% if event.photos.length > 1 %>
-                    <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to= "0" class="active"></li>
-                      <% for i in 1..event.photos.length-1 do %>
-                        <li data-target="#myCarousel" data-slide-to= <%"#{i}"%> ></li>
-                      <% end %>
-                    </ol>
-                  <% end %>
+                    <!-- Indicators (little white dots)-->
+                    <% if event.photos.length > 1 %>
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to= "0" class="active"></li>
+                        <% for i in 1..event.photos.length-1 do %>
+                          <li data-target="#myCarousel" data-slide-to= <%"#{i}"%> ></li>
+                        <% end %>
+                      </ol>
+                    <% end %>
 
 
-                  <!-- Controls chevrons left and right -->
-                  <% if event.photos.length > 1 %>
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                  <% end %>
+                    <!-- Controls chevrons left and right -->
+                    <% if event.photos.length > 1 %>
+                      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+                    <% end %>
+
+                <!-- FERME CARTE -->
                 </div>
-
-              <% else %>
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path 'default_card.jpg' %>');">
-              <% end %>
-              <div class="card-category"><%= event.date.strftime('%a %d %b %Y') %>
               </div>
-                <!-- ATTENTION A LA LANGUE DE LA DATE -->
-                </div>
+            <!-- end event photo  -->
             </div>
+
             <!-- event description -->
             <div class="col-xs-12 col-sm-6">
               <% if current_user %>
@@ -83,15 +78,16 @@
                   <i class="fa fa-trash " aria-hidden="true"></i>
                 <% end %>
               <% else %>
-                <div>
+                <span>
                   <h2><%= event.name %></h2>
                   <p><%= event.description %></p>
-                </div>
+                </span>
               <% end %>
             </div>
 
+          <!-- FINISH ROW  -->
           </div>
-       <% end %>
+        <% end %>
       </div>
     </div>
     <!-- Boutons pour admin  -->

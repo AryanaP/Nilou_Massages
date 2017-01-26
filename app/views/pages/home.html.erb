@@ -20,8 +20,8 @@
 
 
     <!-- Tentative ajout carousel  -->
-    <link href="bootstrap-carousel-fit" rel="stylesheet" />
-    <script src="bootstrap-carousel-fit"/></script/>
+<!--     <link href="bootstrap-carousel-fit" rel="stylesheet" />
+    <script src="bootstrap-carousel-fit"/></script> -->
 
     <div class="col-xs-12 col-sm-6 card-container">
       <div id="myCarousel" class="carousel slide carousel-fit" data-ride="carousel">
@@ -65,15 +65,15 @@
             </div>
           <% else %>
             <div class="item card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @events[0].photos[0].path, alt:'Ongoing Events Slideshow' %>')">
-                <div class="card-title">
-                  <h2><%= link_to "EN CE MOMENT...!", events_path %></h2>
-                </div>
-                <div class="card-description">
-                  <h2><%= @events[0].name %></h2>
-                  <p> <%= @events[0].resume %></p>
-                </div>
-                </div>
-              <%end %>
+              <div class="card-title">
+                <h2><%= link_to "EN CE MOMENT...!", events_path %></h2>
+              </div>
+              <div class="card-description">
+                <h2><%= @events[0].name %></h2>
+                <p> <%= @events[0].resume %></p>
+              </div>
+            </div>
+          <%end %>
 
             <!-- Indicators (little white dots)-->
             <% if @events.length > 1 %>
