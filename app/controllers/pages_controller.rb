@@ -3,14 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @prices = policy_scope(Price).order(name: :desc)
-    user = User.where(email: "niloufer@ravari.fr")
+    @admin  = User.find_by(email: "niloufer@ravari.fr")
     @events = Event.where(home: true)
-    @admin = user[0]
   end
 
   def contact
-    user = User.where(email: "niloufer@ravari.fr")
-    @admin = user[0]
+    @admin = User.find_by(email: "niloufer@ravari.fr")
   end
 
 end
